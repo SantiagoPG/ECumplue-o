@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Cumpleaños</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        p {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para el mensaje de felicitación */
+        #mensajeFelicidades {
+            display: none;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function procesarEncuesta() {
+            var esLeidy = document.querySelector('input[name="esLeidy"]:checked');
+            var cumpleAniosHoy = document.querySelector('input[name="cumpleHoy"]:checked');
+            var regaloDeseado = document.querySelector('input[name="regalo"]:checked');
+
+            if (esLeidy && cumpleAniosHoy && regaloDeseado) {
+                if (esLeidy.value === 'SI' && cumpleAniosHoy.value === 'SI') {
+                    // Mostrar el mensaje de felicitación
+                    document.getElementById('mensajeFelicidades').style.display = 'block';
+                }
+            } else {
+                alert('Por favor, responde todas las preguntas.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <p>¿Eres Leidy Yuliana Quiroz Zapata?</p>
+        <label><input type="radio" name="esLeidy" value="SI">SI</label>
+        <label><input type="radio" name="esLeidy" value="NO">NO</label>
+
+        <p>¿Estás cumpliendo años hoy?</p>
+        <label><input type="radio" name="cumpleHoy" value="SI">SI</label>
+        <label><input type="radio" name="cumpleHoy" value="NO">NO</label>
+
+        <p>¿Qué quieres de regalo de cumpleaños?</p>
+        <label><input type="radio" name="regalo" value="Iphone">Iphone</label>
+        <label><input type="radio" name="regalo" value="Viaje">Viaje</label>
+        <label><input type="radio" name="regalo" value="BolsoGucci">Bolso Gucci</label>
+        <label><input type="radio" name="regalo" value="ComidaGratis">1 Año de comida gratis</label>
+
+        <br><br>
+
+        <button type="button" onclick="procesarEncuesta()">Enviar Encuesta</button>
+
+        <!-- Mensaje de felicitación -->
+        <div id="mensajeFelicidades">¡Felicidades! No has ganado nada, pero esperamos que algún día puedas tener todas las opciones.</div>
+    </form>
+</body>
+</html>
